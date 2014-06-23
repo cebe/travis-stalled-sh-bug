@@ -1,0 +1,17 @@
+language: php
+
+env:
+  - IMAGINE_DRIVER=imagick
+  - IMAGINE_DRIVER=gmagick
+
+before_script:
+  - sh -c " if [ '$IMAGINE_DRIVER' = 'imagick' ]; then
+              wget http://www.imagemagick.org/download/legacy/ImageMagick-6.8.5-10.tar.gz;
+            fi"
+  - sh -c " if [ '$IMAGINE_DRIVER' = 'gmagick' ]; then
+              wget http://pecl.php.net/get/gmagick-1.1.0RC3.tgz;
+            fi"
+
+php:
+  - 5.5
+  - hhvm
