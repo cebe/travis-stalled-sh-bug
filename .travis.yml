@@ -5,6 +5,8 @@ env:
   - IMAGINE_DRIVER=gmagick
 
 before_script:
+  - which sh
+  - cat `which sh`
   - sh -c " if [ '$IMAGINE_DRIVER' = 'imagick' ] && [ '$TRAVIS_PHP_VERSION' != 'hhvm' ] && [ '$TRAVIS_PHP_VERSION' != 'hhvm-nightly' ]; then
               wget http://www.imagemagick.org/download/legacy/ImageMagick-6.8.5-10.tar.gz;
             fi"
